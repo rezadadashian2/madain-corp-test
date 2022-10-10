@@ -49,10 +49,14 @@ function renderCategories() {
 
 // render results list on page
 async function renderList() {
-    const results = await fetchData();
-    console.log(results);
     const results_wrapper = document.getElementById('results');
+    const pagination_wrapper = document.getElementById('pagination-box');
+    const results = await fetchData();
+    // console.log(results);
     results_wrapper.innerHTML = '';
+    pagination_wrapper.innerHTML = '';
+    const total_pages = Math.trunc(results.length/10)+1;
+    document.getElementById('total-results').innerHTML = `<span style="font-weight: 700;">Total Results: </span>${results.length}`;
     results.forEach((result, index) => {
         const html_result = document.createElement("div");
         html_result.classList.add('card', 'd-flex');
