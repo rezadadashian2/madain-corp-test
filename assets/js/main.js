@@ -12,18 +12,26 @@ const CATEGORIES = [
 /** START: Page Functions **/
 // function to fetch the first set of data from API
 async function fetchData() {
-    const response = await HTTP.get(`${API_URL}/?rows=10&fname=${TEST_FNAME}&lname=${TEST_LNAME}&category=${JSON.stringify(CATEGORIES)}&pretty=true`);
+    let categories = document.querySelectorAll('#category-filtration .filtering-item.selected');
+    if (categories.length <= 0) {
+        categories = document.querySelectorAll('#category-filtration .filtering-item');
+    }
+    const categories_array = [];
+    categories.forEach(category => {
+        categories_array.push(category.textContent);
+    });
+    const response = await HTTP.get(`${API_URL}/?rows=10&fname=${TEST_FNAME}&lname=${TEST_LNAME}&category=${JSON.stringify(categories_array)}&pretty=true`);
     if (response && typeof response === 'object') {
         return response;
     }
     return null;
 }
 
-// initiate page function
-async function pageInit() {
+async function renderList() {
     const results = await fetchData();
     console.log(results);
     const results_wrapper = document.getElementById('results');
+    results_wrapper.innerHTML = '';
     results.forEach((result, index) => {
         const html_result = document.createElement("div");
         html_result.classList.add('card', 'd-flex');
@@ -38,6 +46,23 @@ async function pageInit() {
         results_wrapper.append(html_result);
     });
 }
+
+function initData() {
+    renderList();
+}
+
+// initiate page function
+async function pageInit() {
+    initData();
+    const all_filtering_items = document.querySelectorAll('#category-filtration .filtering-item');
+    all_filtering_items.forEach(filteringItem => {
+        filteringItem.addEventListener('click', () => {
+            filteringItem.classList.toggle('selected');
+            initData();
+        });
+    });
+}
+
 
 pageInit();
 /** End: Page Functions **/

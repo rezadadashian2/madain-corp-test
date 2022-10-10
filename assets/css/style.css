@@ -41,11 +41,19 @@ html, body {
 }
 
 #category-filtration .filtering-item {
-    padding: 0.4rem 0.8rem;
-    border: 2px solid #ccc;
+    padding: 0.4rem 2rem;
+    border: 2px solid #eee;
     border-radius: 1rem;
     margin: 10px;
+    cursor: pointer;
 }
+
+#category-filtration .filtering-item.selected {
+    border: 2px solid #009ef7;
+    background: #009ef7;
+    color: #fff;
+}
+
 
 #results-box {
     padding: 1rem;
@@ -61,6 +69,7 @@ html, body {
     position: relative;
     padding: 1rem;
     border-radius: 0.5rem;
+    margin: 2rem 0;
 }
 
 .card .thumbnail {
