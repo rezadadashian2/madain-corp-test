@@ -7,11 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:locale" content="en_US" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-    <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
 </head>
 <!--end::Head-->
 <!--begin::Body-->
 <body>
+<main class="content">
+    <div class="container">
+        <div id="filtration-box">
+            <div id="category-filtration" class="fw-500">
+                <div class="filtering-item">Category 1</div>
+                <div class="filtering-item">Category 2</div>
+                <div class="filtering-item">Category 3</div>
+            </div>
+        </div>
+        <div id="results-box">
+            <div id="results">
+                <div class="card d-flex">
+                    <div class="thumbnail fw-700"><span>FN</span></div>
+                    <div class="info fw-600">
+                        <span>First Name Last Name</span>
+                    </div>
+                    <div class="category-box">
+                        <div class="category-item fw-300">Category 2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
 <script src="assets/js/utils.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

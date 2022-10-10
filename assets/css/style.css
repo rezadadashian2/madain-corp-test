@@ -1,0 +1,113 @@
+.d-flex {
+    display: flex !important;
+}
+.fw-300 {
+    font-weight: 300;
+}
+.fw-400 {
+    font-weight: 400;
+}
+.fw-500 {
+    font-weight: 500;
+}
+.fw-600 {
+    font-weight: 600;
+}
+.fw-700 {
+    font-weight: 700;
+}
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.content {
+    font-size: 1.5rem;
+}
+
+#filtration-box {
+
+}
+
+#category-filtration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#category-filtration .filtering-item {
+    padding: 0.4rem 0.8rem;
+    border: 2px solid #ccc;
+    border-radius: 1rem;
+    margin: 10px;
+}
+
+#results-box {
+    padding: 1rem;
+}
+
+#results {
+    padding: 0.8rem;
+}
+
+.card {
+    background: #fff;
+    box-shadow: 5px 5px 20px rgba(0,0,0,.1);
+    position: relative;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.card .thumbnail {
+    width: 50px;
+    height: 50px;
+    background: #f1faff;
+    color: #009ef7;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.card .info {
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.1rem 2rem;
+}
+
+.card .category-box {
+    position: absolute;
+    bottom: 1rem;
+    right: 0.5rem;
+    box-sizing: content-box;
+    font-size: 1.2rem;
+}
+
+.card .category-box .category-item {
+    background: #1EAEDB;
+    color: #fff;
+    cursor: default !important;
+    margin: 0 0.4rem;
+    padding: 0.2rem 1.5rem;
+    border-radius: 100px;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}

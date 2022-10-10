@@ -10,16 +10,22 @@ const CATEGORIES = [
 /** END: Global Variables **/
 
 /** START: Page Functions **/
+// function to fetch the first set of data from API
 async function fetchData() {
-    const response = await HTTP.get(`${API_URL}/?rows=10&fname=${TEST_FNAME}&lname=${TEST_LNAME}&category=${CATEGORIES}&pretty=true`);
+    const response = await HTTP.get(`${API_URL}/?rows=10&fname=${TEST_FNAME}&lname=${TEST_LNAME}&category=${JSON.stringify(CATEGORIES)}&pretty=true`);
     if (response && typeof response === 'object') {
         return response;
     }
     return null;
 }
 
+// initiate page function
 async function pageInit() {
-    console.log(await fetchData());
+    const results = await fetchData();
+    console.log(results);
+    results.forEach(result => {
+
+    });
 }
 
 pageInit();
