@@ -3,6 +3,7 @@ const API_URL = "https://filltext.com";
 const TEST_FNAME = prompt("Please enter your first name", "Reza");
 const TEST_LNAME = prompt("Please enter your last name", "Dadashian");
 const CATEGORIES = prompt("Please enter a list of categories separated by a comma (,)", "Category 1, Category 2, Category 3");
+const PAGE_LENGTH = parseInt(prompt("Please enter a valid number for results length", "10"));
 
 /** END: Global Variables **/
 
@@ -17,7 +18,7 @@ async function fetchData() {
     categories.forEach(category => {
         categories_array.push(category.textContent);
     });
-    const response = await HTTP.get(`${API_URL}/?rows=10&fname=${TEST_FNAME}&lname=${TEST_LNAME}&category=${JSON.stringify(categories_array)}&pretty=true`);
+    const response = await HTTP.get(`${API_URL}/?rows=${PAGE_LENGTH}&fname=${TEST_FNAME}&lname=${TEST_LNAME}&category=${JSON.stringify(categories_array)}&pretty=true`);
     if (response && typeof response === 'object') {
         return response;
     }

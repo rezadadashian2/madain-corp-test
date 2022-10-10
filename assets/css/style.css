@@ -39,6 +39,7 @@ html, body {
     align-items: center;
     justify-content: center;
     list-style-type: none;
+    overflow: auto;
 }
 
 #category-filtration .filtering-item {
@@ -68,7 +69,7 @@ html, body {
     background: #fff;
     box-shadow: 5px 5px 20px rgba(0,0,0,.1);
     position: relative;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 0.5rem;
     margin: 2rem 0;
 }
