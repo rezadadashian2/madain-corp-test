@@ -1,11 +1,11 @@
 /** START: Global Variables **/
 const API_URL = "https://filltext.com";
 const TEST_FNAME = "reza";
-const TEST_LNAME = "reza";
+const TEST_LNAME = "dadashian";
 const CATEGORIES = [
-    "category1",
-    "category2",
-    "category3",
+    "category 1",
+    "category 2",
+    "category 3",
 ];
 /** END: Global Variables **/
 
@@ -23,8 +23,19 @@ async function fetchData() {
 async function pageInit() {
     const results = await fetchData();
     console.log(results);
-    results.forEach(result => {
-
+    const results_wrapper = document.getElementById('results');
+    results.forEach((result, index) => {
+        const html_result = document.createElement("div");
+        html_result.classList.add('card', 'd-flex');
+        html_result.id = 'card-' + index;
+        html_result.innerHTML = `<div class="thumbnail fw-700 uppercase"><span>${result.fname.substring(0, 1)}${result.lname.substring(0, 1)}</span></div>
+                    <div class="info fw-600">
+                        <span>${result.fname} ${result.lname}</span>
+                    </div>
+                    <div class="category-box">
+                        <div class="category-item fw-300">${result.category}</div>
+                    </div>`;
+        results_wrapper.append(html_result);
     });
 }
 

@@ -16,6 +16,9 @@
 .fw-700 {
     font-weight: 700;
 }
+.uppercase {
+    text-transform: uppercase;
+}
 
 html, body {
     font-family: 'Poppins', sans-serif;
