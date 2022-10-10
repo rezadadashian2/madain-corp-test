@@ -38,6 +38,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    list-style-type: none;
 }
 
 #category-filtration .filtering-item {

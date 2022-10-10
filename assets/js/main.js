@@ -1,12 +1,9 @@
 /** START: Global Variables **/
 const API_URL = "https://filltext.com";
-const TEST_FNAME = "reza";
-const TEST_LNAME = "dadashian";
-const CATEGORIES = [
-    "category 1",
-    "category 2",
-    "category 3",
-];
+const TEST_FNAME = prompt("Please enter your first name", "Reza");
+const TEST_LNAME = prompt("Please enter your last name", "Dadashian");
+const CATEGORIES = prompt("Please enter a list of categories separated by a comma (,)", "Category 1, Category 2, Category 3");
+
 /** END: Global Variables **/
 
 /** START: Page Functions **/
@@ -27,6 +24,29 @@ async function fetchData() {
     return null;
 }
 
+// filtering function
+function filtering() {
+    const all_filtering_items = document.querySelectorAll('#category-filtration .filtering-item');
+    all_filtering_items.forEach(filteringItem => {
+        filteringItem.addEventListener('click', () => {
+            filteringItem.classList.toggle('selected');
+            renderList();
+        });
+    });
+}
+
+function renderCategories() {
+    const categories_wrapper = document.getElementById('category-filtration');
+    categories_wrapper.innerHTML = '';
+    CATEGORIES.split(',').forEach((category) => {
+        const html_result = document.createElement("li");
+        html_result.classList.add('filtering-item');
+        html_result.innerText = category.trim();
+        categories_wrapper.append(html_result);
+    });
+}
+
+// render results list on page
 async function renderList() {
     const results = await fetchData();
     console.log(results);
@@ -47,20 +67,12 @@ async function renderList() {
     });
 }
 
-function initData() {
-    renderList();
-}
-
 // initiate page function
 async function pageInit() {
-    initData();
-    const all_filtering_items = document.querySelectorAll('#category-filtration .filtering-item');
-    all_filtering_items.forEach(filteringItem => {
-        filteringItem.addEventListener('click', () => {
-            filteringItem.classList.toggle('selected');
-            initData();
-        });
-    });
+    renderCategories();
+    // first initiation
+    renderList();
+    filtering();
 }
 
 
